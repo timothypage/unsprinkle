@@ -25,6 +25,8 @@ const HeroImage = styled.img`
   width: 500px;
   height: 500px;
   max-height: 100%;
+
+  object-fit: cover;
 `;
 
 const Swoop = styled.img`

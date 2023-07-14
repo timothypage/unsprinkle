@@ -17,11 +17,11 @@ const PhotoGridItem = ({ id, src, alt, tags }) => {
         <picture>
           <source
             type="image/avif"
-            srcset={sizes.map(sizePhotoMap.bind({type: 'avif', src})).join(',\n')}
+            srcSet={sizes.map(sizePhotoMap.bind({type: 'avif', src})).join(',\n')}
           />
           <source
             type="image/jpeg"
-            srcset={sizes.map(sizePhotoMap.bind({type: 'jpg', src})).join(',\n')}
+            srcSet={sizes.map(sizePhotoMap.bind({type: 'jpg', src})).join(',\n')}
           />
           <Image src={src} />
         </picture>
@@ -52,14 +52,11 @@ const Image = styled.img`
 `;
 
 const Tags = styled.ul`
-  display: inline-block;
-
-  max-width: 100%;
-  line-height: 2rem;
   white-space: nowrap;
   overflow: hidden;
 
   text-overflow: ellipsis;
+  padding:  4px 0;
 `;
 
 const Tag = styled.li`
