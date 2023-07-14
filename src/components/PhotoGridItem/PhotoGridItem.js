@@ -1,11 +1,30 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
+const sizes = ['1x', '2x', '3x'];
+
+function sizePhotoMap(size) {
+  const replacement = size === '1x' ? `.${this.type} 1x` : `@${size}.${this.type} ${size}`
+
+  return `${this.src.replace('.jpg', replacement)}`
+}
+
 const PhotoGridItem = ({ id, src, alt, tags }) => {
+
   return (
     <article>
       <Anchor href={`/photos/${id}`}>
-        <Image src={src} />
+        <picture>
+          <source
+            type="image/avif"
+            srcset={sizes.map(sizePhotoMap.bind({type: 'avif', src})).join(',\n')}
+          />
+          <source
+            type="image/jpeg"
+            srcset={sizes.map(sizePhotoMap.bind({type: 'jpg', src})).join(',\n')}
+          />
+          <Image src={src} />
+        </picture>
       </Anchor>
       <Tags>
         {tags.map((tag) => (
